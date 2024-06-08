@@ -1,6 +1,10 @@
-from data_preprocessing import load_and_preprocess_data, filter_binary_classes
-from cnn_model import build_multiclass_model, build_binary_model
-from train_and_evaluate import train_and_evaluate
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.data_preprocessing import load_and_preprocess_data, filter_binary_classes
+from src.cnn_model import build_multiclass_model, build_binary_model
+from src.train_and_evaluate import train_and_evaluate
 
 # Carregar e preprocessar dados
 (train_images, train_labels), (test_images, test_labels) = load_and_preprocess_data()
