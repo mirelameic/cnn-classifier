@@ -1,0 +1,6 @@
+def train_and_evaluate(model, train_images, train_labels, test_images, test_labels, epochs=5):
+    history = model.fit(train_images, train_labels, epochs=epochs, 
+                        validation_data=(test_images, test_labels))
+    test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
+    print(f'Test accuracy: {test_acc}')
+    return history, test_loss, test_acc
