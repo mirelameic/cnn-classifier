@@ -1,12 +1,49 @@
-# Letters MLP
+# CNN Classifier
     Projeto da disciplina de Inteligência Artificial (EACH-USP)
 
+O projeto consiste na implementação de uma rede neural convolucional (CNN) em Python, com TensorFlow/Keras. Ele é organizado de forma modular, com funções específicas para carregar e pré-processar dados, construir modelos e treinar/avaliar os modelos.   
+O objetivo é realizar duas tarefas de classificação usando o conjunto de dados MNIST:
 
+1. Classificação Multiclasse: Identificar corretamente dígitos de 0 a 9.
+2. Classificação Binária: Identificar corretamente dois dígitos específicos escolhidos pelo usuário.
 
 ## Estrutura
 
-- `src`: 
-- `venv`: 
+- `src`: arquivos .py que fazem o treinamento e avaliação dos modelos da rede neural.
+- `requirements.txt`: arquivo que contém as dependências que serão instaladas para rodar.
+
+## Módulos
+### data_processing
+Responsável por orquestrar todo o processo, desde o carregamento e pré-processamento dos dados até o treinamento e avaliação dos modelos.
+
+### data_preprocessing
+Funções para carregar e pré-processar os dados.  
+* `load_and_preprocess_data`: Carrega os dados do MNIST, normaliza os valores das imagens para o intervalo [0, 1] e adiciona uma dimensão extra necessária para a CNN.  
+* `filter_binary_classes`: Filtra as imagens e rótulos para conter apenas duas classes específicas, permitindo a classificação binária.
+
+### train_and_evaluate
+Função para treinar e avaliar os modelos.  
+* `train_and_evaluate`: Treina o modelo com os dados de treinamento e avalia o desempenho nos dados de teste, retornando o histórico de treinamento, a perda e a acurácia de teste.
+
+### cnn_model
+  Funções para construir os modelos de rede neural.  
+* `build_multiclass_model`: Cria e compila uma CNN para classificação de 10 classes (dígitos de 0 a 9), com várias camadas convolucionais, de pooling e densas.  
+* `build_binary_model`: Cria e compila uma CNN para classificação binária entre duas classes específicas, com uma estrutura semelhante à do modelo multiclasse, mas com uma camada de saída adaptada para a classificação binária.
+
+## Fluxo
+#### Carregamento e Pré-processamento dos Dados
+
+Os dados do MNIST são carregados e normalizados.
+Para a tarefa binária, os dados são filtrados para conter apenas duas classes específicas (no caso, 0 e 1).
+
+#### Construção e Treinamento dos Modelos
+
+Um modelo CNN para classificação multiclasse é construído e treinado.
+Outro modelo CNN para classificação binária é construído e treinado com os dados filtrados.
+
+#### Avaliação
+
+Ambos os modelos são avaliados com dados de teste para medir seu desempenho.
 
 ## Run
 1. Crie um ambiente virtual e instale as dependências
