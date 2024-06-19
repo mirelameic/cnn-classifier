@@ -1,5 +1,6 @@
 import tensorflow as tf
-from tensorflow.keras import datasets
+from tensorflow import keras
+from keras import datasets
 
 def load_and_preprocess_data():
     # carregar o conjunto de dados MNIST

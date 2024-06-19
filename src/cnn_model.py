@@ -1,4 +1,5 @@
-from tensorflow.keras import models, layers
+from tensorflow import keras
+from keras import models, layers
 
 def build_multiclass_model(input_shape):
     # cria um modelo sequencial com camadas convolucionais, de pooling, e densas
