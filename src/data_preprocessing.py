@@ -3,10 +3,10 @@ from tensorflow import keras
 from keras import datasets
 
 def load_and_preprocess_data():
-    # carregar o conjunto de dados MNIST
+    # carrega o conjunto de dados MNIST
     (train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data()
 
-    # normalizar as imagens para o intervalo [0, 1]
+    # normaliza as imagens para o intervalo [0, 1]
     train_images = train_images / 255.0
     test_images = test_images / 255.0
 
