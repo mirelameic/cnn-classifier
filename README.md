@@ -57,3 +57,24 @@ Ambos os modelos são avaliados com dados de teste para medir seu desempenho.
    ~~~
    python src/main.py
    ~~~
+
+## Dependências
+Este projeto utiliza várias bibliotecas essenciais em Python para análise de dados, construção de modelos de machine learning e visualização de resultados. Abaixo estão as principais dependências necessárias:
+
+- **[TensorFlow](https://www.tensorflow.org/)**
+  - Biblioteca de código aberto da Google para machine learning e deep learning. Ideal para construir e treinar modelos complexos de machine learning.
+
+- **[Matplotlib](https://matplotlib.org/)**
+  - Biblioteca gráfica em Python para criação de gráficos 2D. Essencial para visualização de dados através de gráficos detalhados e customizáveis.
+
+- **[scikit-learn](https://scikit-learn.org/stable/)**
+  - Biblioteca de machine learning em Python, de código aberto. Oferece ferramentas para análise preditiva, incluindo classificação, regressão e clustering.
+
+- **[NumPy](https://numpy.org/)**
+  - Biblioteca fundamental para computação científica em Python. Facilita operações numéricas complexas com arrays multidimensionais.
+
+- **[Seaborn](https://seaborn.pydata.org/)**
+  - Biblioteca de visualização de dados baseada em Matplotlib. Permite a criação de gráficos estatísticos atraentes e informativos.
+
+
+
