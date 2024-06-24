@@ -2,10 +2,10 @@
     Projeto da disciplina de Inteligência Artificial (EACH-USP)
 
 O projeto consiste na implementação de uma rede neural convolucional (CNN) em Python, com TensorFlow/Keras. Ele é organizado de forma modular, com funções específicas para carregar e pré-processar dados, construir modelos e treinar/avaliar os modelos.   
-O objetivo é realizar duas tarefas de classificação usando o conjunto de dados MNIST:
+O objetivo é realizar duas tarefas de classificação usando o conjunto de dados [MNIST](https://www.tensorflow.org/datasets/catalog/mnist?hl=pt-br):
 
 1. Classificação Multiclasse: Identificar corretamente dígitos de 0 a 9.
-2. Classificação Binária: Identificar corretamente dois dígitos específicos escolhidos pelo usuário.
+2. Classificação Binária: Identificar se é ou não é determinado dígito escolhido.
 
 ## Estrutura
 
@@ -13,37 +13,43 @@ O objetivo é realizar duas tarefas de classificação usando o conjunto de dado
 - `requirements.txt`: arquivo que contém as dependências que serão instaladas para rodar.
 
 ## Módulos
-### data_processing
+### main.py
 Responsável por orquestrar todo o processo, desde o carregamento e pré-processamento dos dados até o treinamento e avaliação dos modelos.
 
-### data_preprocessing
+### data_preprocess.py
 Funções para carregar e pré-processar os dados.  
 * `load_and_preprocess_data`: Carrega os dados do MNIST, normaliza os valores das imagens para o intervalo [0, 1] e adiciona uma dimensão extra necessária para a CNN.  
-* `filter_binary_classes`: Filtra as imagens e rótulos para conter apenas duas classes específicas, permitindo a classificação binária.
+* `filter_binary_classes`: Filtra as imagens e rótulos para conter apenas a classe específica, permitindo a classificação binária.
 
-### train_and_evaluate
+### train_and_evaluate.py
 Função para treinar e avaliar os modelos.  
 * `train_and_evaluate`: Treina o modelo com os dados de treinamento e avalia o desempenho nos dados de teste, retornando o histórico de treinamento, a perda e a acurácia de teste.
 
-### cnn_model
-  Funções para construir os modelos de rede neural.  
+### cnn_model.py
+Funções para construir os modelos de rede neural.  
 * `build_multiclass_model`: Cria e compila uma CNN para classificação de 10 classes (dígitos de 0 a 9), com várias camadas convolucionais, de pooling e densas.  
-* `build_binary_model`: Cria e compila uma CNN para classificação binária entre duas classes específicas, com uma estrutura semelhante à do modelo multiclasse, mas com uma camada de saída adaptada para a classificação binária.
+* `build_binary_model`: Cria e compila uma CNN para classificação binária para uma classe específica, com uma estrutura semelhante à do modelo multiclasse, mas com uma camada de saída adaptada para a classificação binária.
+
+### plot.py
+Funções para gerar e salvar os gráficos.  
+* `plot_confusion_matrix`: Gera e salva um gráfico de matriz de confusão, que ajuda a visualizar o desempenho do modelo em termos de classificações corretas e incorretas. Esse gráfico é apenas para a Validação.
+* `plot_accuracy`: Gera e salva um gráfico de precisão ao longo do tempo, mostrando como a precisão do modelo melhora ou piora ao longo das épocas de treinamento. Esse gráfico é gerado para o Treinamento e Validação.
+* `plot_loss`: Gera e salva um gráfico de perda ao longo do tempo, mostrando como a perda (erro) do modelo melhora ou piora ao longo das épocas de treinamento. Esse gráfico é gerado para o Treinamento e Validação.
 
 ## Fluxo
 #### Carregamento e Pré-processamento dos Dados
-
-Os dados do MNIST são carregados e normalizados.
-Para a tarefa binária, os dados são filtrados para conter apenas duas classes específicas (no caso, 0 e 1).
+Os dados do MNIST são carregados e normalizados.  
+Para a tarefa binária, os dados são filtrados para avaliar apenas um determinado dígito escolhido pelo usuário.
 
 #### Construção e Treinamento dos Modelos
-
 Um modelo CNN para classificação multiclasse é construído e treinado.
 Outro modelo CNN para classificação binária é construído e treinado com os dados filtrados.
 
 #### Avaliação
-
 Ambos os modelos são avaliados com dados de teste para medir seu desempenho.
+
+#### Gráficos
+Ao final, são plotados três gráficos para os dois tipos de modelos. Sendo eles: Matriz de Confusão (validação), Erro (treinamento e validação), Acurácia (treinamento e validação). Eles são criados na pasta plot do projeto.
 
 ## Run
 1. Crie um ambiente virtual e instale as dependências
@@ -75,6 +81,3 @@ Este projeto utiliza várias bibliotecas essenciais em Python para análise de d
 
 - **[Seaborn](https://seaborn.pydata.org/)**
   - Biblioteca de visualização de dados baseada em Matplotlib. Permite a criação de gráficos estatísticos atraentes e informativos.
-
-
-
