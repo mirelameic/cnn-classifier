@@ -16,9 +16,7 @@ def load_and_preprocess_data():
 
     return (train_images, train_labels), (test_images, test_labels)
 
-def filter_binary_classes(images, labels, class_1, class_2):
-    # filtra as imagens e rótulos para obter apenas as duas classes escolhidas
-    binary_mask = (labels == class_1) | (labels == class_2)
-    binary_images = images[binary_mask]
-    binary_labels = labels[binary_mask]
-    return binary_images, binary_labels
+def filter_binary_classes(images, labels, target_class):
+    # Cria rótulos binários: 1 se o rótulo for igual à target_class, 0 caso contrário
+    binary_labels = (labels == target_class).astype(int)
+    return images, binary_labels

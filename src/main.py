@@ -21,7 +21,7 @@ def plot_confusion_matrix(cm, class_names, title='Confusion Matrix', filename='c
     plt.savefig(filename)
     plt.close()
 
-# carrega e pré-processar os dados
+# carrega e pré-processa os dados
 (train_images, train_labels), (test_images, test_labels) = load_and_preprocess_data()
 
 # constroi e treina o modelo multiclasses
@@ -37,10 +37,10 @@ multiclass_cm = confusion_matrix(test_labels, multiclass_pred_labels)
 plot_confusion_matrix(multiclass_cm, class_names=[str(i) for i in range(10)], title='Multiclass Confusion Matrix', filename='plot/multiclass_confusion_matrix.png')
 
 # constroi e treina o modelo binário
-class_1, class_2 = 0, 1
-print(f"\n \033[95m Training and evaluating binary model for classes {class_1} and {class_2}... \033[0m")
-binary_train_images, binary_train_labels = filter_binary_classes(train_images, train_labels, class_1, class_2)
-binary_test_images, binary_test_labels = filter_binary_classes(test_images, test_labels, class_1, class_2)
+target_class = 0
+print(f"\n \033[95m Training and evaluating binary model for class {target_class}... \033[0m")
+binary_train_images, binary_train_labels = filter_binary_classes(train_images, train_labels, target_class)
+binary_test_images, binary_test_labels = filter_binary_classes(test_images, test_labels, target_class)
 binary_model = build_binary_model((28, 28, 1))
 _, _, _, binary_predictions = train_and_evaluate(binary_model, binary_train_images, binary_train_labels, binary_test_images, binary_test_labels)
 
@@ -49,4 +49,4 @@ binary_pred_labels = (binary_predictions > 0.5).astype(int).flatten()
 
 # calcula a matriz de confusão para o modelo binário
 binary_cm = confusion_matrix(binary_test_labels, binary_pred_labels)
-plot_confusion_matrix(binary_cm, class_names=[str(class_1), str(class_2)], title=f'Binary Confusion Matrix ({class_1} vs {class_2})', filename='plot/binary_confusion_matrix.png')
+plot_confusion_matrix(binary_cm, class_names=['Not ' + str(target_class), str(target_class)], title=f'Binary Confusion Matrix (Not {target_class} vs {target_class})', filename=f'plot/binary_confusion_matrix_{target_class}.png')
