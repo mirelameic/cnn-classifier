@@ -17,6 +17,6 @@ def load_and_preprocess_data():
     return (train_images, train_labels), (test_images, test_labels)
 
 def filter_binary_classes(images, labels, target_class):
-    # Cria rótulos binários: 1 se o rótulo for igual à target_class, 0 caso contrário
+    # cria rótulos binários: 1 se o rótulo for igual à target_class, 0 caso contrário
     binary_labels = (labels == target_class).astype(int)
     return images, binary_labels
