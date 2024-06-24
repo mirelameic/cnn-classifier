@@ -10,6 +10,7 @@ O objetivo é realizar duas tarefas de classificação usando o conjunto de dado
 ## Estrutura
 
 - `src`: arquivos .py que fazem o treinamento e avaliação dos modelos da rede neural.
+- `plot`: imagens dos gráficos gerandos durante a execucação do projeto.
 - `requirements.txt`: arquivo que contém as dependências que serão instaladas para rodar.
 
 ## Módulos
@@ -81,3 +82,12 @@ Este projeto utiliza várias bibliotecas essenciais em Python para análise de d
 
 - **[Seaborn](https://seaborn.pydata.org/)**
   - Biblioteca de visualização de dados baseada em Matplotlib. Permite a criação de gráficos estatísticos atraentes e informativos.
+
+### Exemplos
+Abaixo é possível visualizar um exemplo de como ficaram os plots para do treinamento `Multiclasse` realizado para o projeto.
+
+![Confusion Matrix](plot/multiclass_confusion_matrix.png)
+
+![Acuracy](plot/multiclass_accuracy.png)
+
+![Loss](plot/multiclass_loss.png)
